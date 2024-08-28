@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Toast } from "../config/sweetAlert";
 import { authFailure, authStart, authSuccess } from "../redux/slice/authSlice";
 import Service from "../config/service";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import StripeCheckout from "react-stripe-checkout";
 import logo from "../../public/logo.jpg"
 import { useEffect, useState } from "react";
@@ -66,14 +65,13 @@ export default function Cart() {
         if (stripeToken) handlePaymentFunction();
     }, [stripeToken]);
 
-
     return (
-        <div className="h-[70vh] px-32 my-10">
+        <div className="min-h-screen px-32 pt-24">
             <h1 className="text-2xl">Savatdagi barcha mahsulotlar</h1>
 
             {
                 isLoading ? <MainLoader /> :
-                    <div className="flex gap-10 mt-4">
+                    <div className="flex items-center justify-between gap-10 mt-4">
                         <div className="w-full max-h-[500px] p-4 flex flex-wrap gap-8 overflow-y-auto">
                             {
                                 auth?.basket?.length > 0 ?
@@ -83,7 +81,7 @@ export default function Cart() {
                                             className="w-full flex items-start justify-between shadow-md rounded-md p-4 bg-white"
                                         >
                                             <Link to={`/books/${item?.book?._id}`} className="flex gap-8">
-                                                <div className="w-[100px] h-[150px]">
+                                                <div className="w-72">
                                                     <img className="size-full object-cover" src={item?.book?.img} alt={item?.book?.nomi} />
                                                 </div>
 

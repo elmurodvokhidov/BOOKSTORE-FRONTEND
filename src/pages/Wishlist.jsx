@@ -26,7 +26,7 @@ export default function Wishlist({ addToBasketFunction, toggleLikeFunction }) {
     };
 
     return (
-        <div className="h-[70vh] px-32 my-10">
+        <div className="min-h-screen px-32 pt-24">
             <h1 className="text-2xl">Saralangan barcha mahsulotlar</h1>
             <div className="mt-5 flex flex-wrap gap-8">
                 {

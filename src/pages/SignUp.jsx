@@ -22,7 +22,8 @@ export default function SignUp() {
         });
     };
 
-    const handleRegister = async () => {
+    const handleRegister = async (e) => {
+        e.preventDefault();
         try {
             dispatch(authStart());
             const { data } = await Service.resgisterAuth(auth);
@@ -43,10 +44,10 @@ export default function SignUp() {
     }, [isLoggedIn, navigate]);
 
     return (
-        <div className="h-screen w-full absolute z-10 bg-gray-100">
+        <div className="w-full h-screen flex flex-col items-center justify-center absolute z-10 bg-gray-100">
             <h1 className="text-center text-3xl mt-20">Ro'yhatdan o'tish</h1>
 
-            <form className="max-w-sm mx-auto my-10">
+            <form onSubmit={handleRegister} className="max-w-sm min-w-96 mx-auto my-10">
                 <div className="mb-5">
                     <label
                         htmlFor="fullname"
@@ -96,8 +97,7 @@ export default function SignUp() {
                 </div>
 
                 <button
-                    onClick={handleRegister}
-                    type="button"
+                    type="submit"
                     className="w-full text-white bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                     {isLoading ? "Loading..." : "Ro'yxatdan o'tish"}

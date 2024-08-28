@@ -76,7 +76,7 @@ const BookInfo = ({ addToBasketFunction, toggleLikeFunction }) => {
     };
 
     return (
-        <div className="px-32 pt-16 pb-28">
+        <div className="h-screen flex items-center justify-center px-32">
             {
                 isLoading || !book ? <MainLoader /> :
                     <div className="flex flex-col gap-10">
@@ -85,7 +85,7 @@ const BookInfo = ({ addToBasketFunction, toggleLikeFunction }) => {
                                 <img
                                     src={book?.img}
                                     alt={book?.nomi + " rasmi"}
-                                    className="w-60 mx-auto"
+                                    className="w-80 mx-auto"
                                 />
                             </figure>
                             <div className="w-full flex flex-col justify-between gap-4 p-4 text-xl">
@@ -103,10 +103,10 @@ const BookInfo = ({ addToBasketFunction, toggleLikeFunction }) => {
                                             }
                                         </button>
                                     </div>
-                                    <h1 className="mt-4">{book?.description}</h1>
+                                    <h1 className="mt-4 font-thin">{book?.description}</h1>
                                     <div className="flex gap-6 mt-2">
-                                        <h1>Narxi: <b>{book?.narxi}$</b></h1>
-                                        <h1>Turi: <b>{book?.cat?.nomi}</b></h1>
+                                        <h1 className="font-thin">Narxi: <b>{book?.narxi}$</b></h1>
+                                        <h1 className="font-thin">Turi: <b>{book?.cat?.nomi}</b></h1>
                                     </div>
                                 </div>
                                 <div className="flex items-center justify-between">

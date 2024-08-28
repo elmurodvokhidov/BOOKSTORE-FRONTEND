@@ -4,12 +4,12 @@ import { bookFailure, bookStart, bookSuccess } from "../redux/slice/bookSlice";
 import { categoryFailure, categoryStart, categorySuccess } from "../redux/slice/categorySlice";
 import { IoMdCart } from "react-icons/io";
 import Service from "../config/service";
-import { IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import MainLoader from "../components/MainLoader";
 import EmptyAnimation from "../components/EmptyAnimation";
+import { useDelay } from "../hooks/useDelay";
 
 export default function Home({ nomi, addToBasketFunction, toggleLikeFunction }) {
     const { books, isLoading } = useSelector(state => state.book);
@@ -17,6 +17,7 @@ export default function Home({ nomi, addToBasketFunction, toggleLikeFunction }) 
     const { categories } = useSelector(state => state.category);
     const dispatch = useDispatch();
     const [cat, setCat] = useState("");
+    const delayedValue = useDelay(nomi, 500);
 
     const getAllCategories = async () => {
         try {
@@ -43,10 +44,10 @@ export default function Home({ nomi, addToBasketFunction, toggleLikeFunction }) 
 
         getAllCategories();
         getBooksFunction();
-    }, [nomi, cat]);
+    }, [delayedValue, cat]);
 
     return (
-        <div className="px-32 pt-10 pb-20">
+        <div className="min-h-screen px-32 pt-28">
             <div className="flex flex-wrap items-center gap-2">
                 <button
                     onClick={() => setCat("")}

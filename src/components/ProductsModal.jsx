@@ -23,7 +23,7 @@ export const ProductsModal = ({
                             className="flex items-start justify-between shadow-md rounded-md p-4 hover:shadow-xl transition-all bg-white"
                         >
                             <Link to={`/books/${book?._id}`} className="flex gap-8">
-                                <div className="w-[100px] h-[150px]">
+                                <div className="w-80 h-[150px]">
                                     <img className="size-full object-cover" src={book?.img} alt={book?.nomi} />
                                 </div>
 

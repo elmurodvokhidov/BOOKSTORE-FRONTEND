@@ -27,18 +27,18 @@ export default function App() {
   const navigate = useNavigate();
 
   const getAuthFunction = async () => {
-    const { data } = await Service.getAuth();
-    dispatch(authSuccess(data));
+    if (getFromLocalStorage("token")) {
+      try {
+        const { data } = await Service.getAuth();
+        dispatch(authSuccess(data));
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   useEffect(() => {
-    try {
-      if (getFromLocalStorage("token")) {
-        getAuthFunction();
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    getAuthFunction();
   }, []);
 
   const addToBasketFunction = async (bookId) => {

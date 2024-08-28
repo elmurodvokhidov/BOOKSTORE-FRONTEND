@@ -23,7 +23,7 @@ export const Orders = () => {
                             auth?.orders?.length > 0 ?
                                 auth?.orders.map(order => (
                                     <div key={order?._id}>
-                                        <h1 className="border-2 text-xl p-4"><span>Buyurtma ID raqami:</span> <span>{order?._id?.slice(10, 16)}</span></h1>
+                                        <h1 className="border-2 text-xl p-4"><span>Buyurtma ID raqami:</span> <span>#{order?._id?.slice(10, 16)}</span></h1>
 
                                         <div className="flex flex-col gap-2 text-lg border-2 p-4 border-t-0">
                                             <div className="w-full flex justify-between gap-2">

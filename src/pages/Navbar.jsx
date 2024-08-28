@@ -9,7 +9,7 @@ export default function Navbar({ setNomi }) {
     const location = useLocation();
 
     return (
-        <nav className="bg-white shadow-lg relative z-20">
+        <nav className="w-full shadow-lg fixed z-20 bg-white">
             <div className="uppercase flex items-center justify-between border-b px-32 py-4 text-sm text-gray-500">
                 <ul className="flex items-center gap-6">
                     <li>
